@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Important Question</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 100px;
+        }
+        #question {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .btn {
+            font-size: 20px;
+            padding: 10px 20px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+        }
+        .yes {
+            background-color: green;
+            color: white;
+        }
+        .no {
+            background-color: red;
+            color: white;
+            position: absolute;
+        }
+        #message {
+            display: none;
+            font-size: 22px;
+            color: blue;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="question">Press the Yes</div>
+    <button class="btn yes" onclick="showNextQuestion()">Yes</button>
+
+    <div id="second-question" style="display:none;">
+        <div id="question">Will you marry me? 💍</div>
+        <button class="btn yes" onclick="showMessage()">Yes</button>
+        <button class="btn no" onmouseover="moveNo()">No</button>
+    </div>
+
+    <div id="message" style="display:none;">❤️ Yay! I love you! ❤️</div>
+
+    <script>
+        function showNextQuestion() {
+            document.getElementById("second-question").style.display = "block";
+            document.getElementById("question").style.display = "none";
+        }
+
+        function showMessage() {
+            document.getElementById("message").style.display = "block";
+        }
+
+        function moveNo() {
+            let button = document.querySelector(".no");
+            let x = Math.random() * (window.innerWidth - 100);
+            let y = Math.random() * (window.innerHeight - 100);
+            button.style.left = x + "px";
+            button.style.top = y + "px";
+        }
+    </script>
+
+</body>
+</html>
